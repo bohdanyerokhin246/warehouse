@@ -5,13 +5,7 @@ import (
 )
 
 func IndexPage(c *gin.Context) {
-	c.HTML(200, "index.html", gin.H{
-		"Role": "manager",
-	})
-}
-
-func TestPage(c *gin.Context) {
-	c.HTML(200, "test.html", gin.H{})
+	c.HTML(200, "index.html", gin.H{})
 }
 
 func RegistrationPage(c *gin.Context) {
@@ -20,4 +14,8 @@ func RegistrationPage(c *gin.Context) {
 
 func AuthorizationPage(c *gin.Context) {
 	c.HTML(200, "authorization.html", gin.H{})
+}
+
+func AdminPage(c *gin.Context) {
+	c.HTML(200, "admin.html", gin.H{})
 }

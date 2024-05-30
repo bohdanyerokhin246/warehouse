@@ -22,7 +22,7 @@ if (button) {
                     console.log(response.Error);
                 }
             } else {
-                console.log("Некорректные данные");
+                    alert("Введено некоректні дані");
             }
         };
         xhr.send(JSON.stringify(data));

@@ -40,6 +40,7 @@ func UserRegistration(c *gin.Context) {
 }
 
 func UserAuthorization(c *gin.Context) {
+
 	var user config.User
 	e := c.BindJSON(&user)
 	if e != nil {
@@ -49,9 +50,10 @@ func UserAuthorization(c *gin.Context) {
 		return
 	}
 
-	fmt.Println(user)
+	name := postgresql.GetUserByLogin(user.Login)
 
 	c.JSON(200, gin.H{
+		"Name":  name,
 		"Error": nil,
 	})
 }

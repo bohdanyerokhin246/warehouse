@@ -23,9 +23,9 @@ func Run() {
 
 	//HTML handlers
 	r.GET("/", html.IndexPage)
-	r.GET("/test", html.TestPage)
 	r.GET("/registration", html.RegistrationPage)
 	r.GET("/authorization", html.AuthorizationPage)
+	r.GET("/adminPage", html.AdminPage)
 
 	//JSON handlers
 	r.POST("/user/create", json.CreateUser)

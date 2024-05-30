@@ -17,3 +17,10 @@ func CreateNewUser() (uint, error) {
 
 	return user.ID, result.Error
 }
+
+func GetUserByLogin(login string) string {
+	user := config.User{}
+	DB.Find(&user, "login = ?", login)
+
+	return user.Name
+}
