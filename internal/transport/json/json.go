@@ -4,18 +4,21 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"site/internal/config"
+	"site/internal/database/postgresql"
 )
 
-func GetTestInfo(c *gin.Context) {
-	type Test struct {
-		ProductName string `json:"product_name"`
-		ProductID   int32  `json:"product_id"`
+func CreateUser(c *gin.Context) {
+	userID, err := postgresql.CreateNewUser()
+	if err != nil {
+		c.JSON(200, gin.H{
+			"Error": err.Error(),
+		})
+		return
 	}
-	test := Test{
-		ProductID:   256,
-		ProductName: "Хліб"}
-
-	c.IndentedJSON(200, test)
+	c.JSON(200, gin.H{
+		"Error": nil,
+		"User":  userID,
+	})
 
 }
 

@@ -11,7 +11,7 @@ if (button) {
 
 
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", "/user/reg");
+        xhr.open("POST", "/user/create");
         xhr.onload = function (e) {
             let response = JSON.parse(e.currentTarget.response);
             if ("Error" in response) {
