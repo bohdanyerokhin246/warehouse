@@ -5,6 +5,7 @@ if (button) {
 
         let data = {};
         data.login = user[0].value;
+        data.password = user[1].value;
 
 
         let xhr = new XMLHttpRequest();

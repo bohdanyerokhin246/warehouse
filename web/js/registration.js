@@ -6,7 +6,7 @@ if (button) {
         data.login = inputs[0].value;
         data.email = inputs[1].value;
         data.password = inputs[2].value;
-        data.role = parseInt(inputs[3].value);
+        data.role = inputs[3].value;
         data.name = inputs[4].value;
 
 

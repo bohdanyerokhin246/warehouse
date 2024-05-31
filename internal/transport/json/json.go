@@ -8,15 +8,19 @@ import (
 )
 
 func CreateUser(c *gin.Context) {
-	userID, err := postgresql.CreateNewUser()
-	if err != nil {
+	var user config.User
+	e := c.BindJSON(&user)
+	if e != nil {
 		c.JSON(200, gin.H{
-			"Error": err.Error(),
+			"Error": e.Error(),
 		})
 		return
 	}
+
+	userID, err := postgresql.CreateNewUser(user)
+
 	c.JSON(200, gin.H{
-		"Error": nil,
+		"Error": err,
 		"User":  userID,
 	})
 
@@ -50,10 +54,10 @@ func UserAuthorization(c *gin.Context) {
 		return
 	}
 
-	name := postgresql.GetUserByLogin(user.Login)
+	name, err := postgresql.UserAuthorization(user.Login, user.Password)
 
 	c.JSON(200, gin.H{
 		"Name":  name,
-		"Error": nil,
+		"Error": err,
 	})
 }
