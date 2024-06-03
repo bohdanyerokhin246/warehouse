@@ -11,6 +11,11 @@ type User struct {
 	Name     string `json:"name"`
 }
 
+type Category struct {
+	gorm.Model
+	Name string `json:"name"`
+}
+
 type Cartridge struct {
 	ID    int    `json:"ID"`
 	Name  string `json:"Name"`
