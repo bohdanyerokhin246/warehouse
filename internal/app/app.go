@@ -27,9 +27,16 @@ func Run() {
 	r.GET("/authorization", html.AuthorizationPage)
 	r.GET("/adminPage", html.AdminPage)
 
-	//JSON handlers
+	//JSON user endpoint
 	r.POST("/user/create", json.CreateUser)
 	r.POST("/user/reg", json.UserRegistration)
 	r.POST("/user/auth", json.UserAuthorization)
+
+	//JSON categories endpoint
+	r.POST("/category/create", json.CreateCategory)
+	r.POST("/category/get", json.GetCategories)
+	r.POST("/category/update", json.UpdateCategory)
+	r.POST("/category/delete", json.DeleteCategory)
+
 	_ = r.Run(":8080")
 }
